@@ -1,0 +1,22 @@
+<ion-view title="{{title}}">
+
+    <ion-nav-bar class="bar-positive" ng-click="openPopover($event)">
+        <ion-nav-back-button class="button-icon ion-arrow-left-c">
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content>
+        <ion-refresher pulling-text="Pull to Reset..." on-refresh="doRefresh(false)">
+        </ion-refresher>
+        <div class="list">
+            <ion-item ng-repeat="Route in availableRoutes track by $index" ng-click="goDetails(Route.routeNo,Route.routeHeading,selectedStopNo)">
+                <span class="item-note digital">
+                    {{Route.gpsTime}}
+                </span>
+                <h2>{{Route.routeNo}}</h2>
+                <p>To {{Route.routeHeading}}</p>
+            </ion-item>
+        </div>
+    </ion-content>
+
+</ion-view>

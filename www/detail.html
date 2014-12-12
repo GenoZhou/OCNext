@@ -1,0 +1,45 @@
+<ion-view title="{{routeNo}} to {{routeHeading}}">
+
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button class="button-icon ion-arrow-left-c">
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content>
+        <div class="list card">
+
+            <div class="item">
+                <!-- <img src="avatar.jpg">
+                <h2>Pretty Hate Machine</h2>
+                <p>Nine Inch Nails</p> -->
+                <div class="mapRefreshing icon ion-loading-c" ng-show="ifRefreshing">          
+                </div>
+                <h1 class="remains" ng-show="ifSoon">
+                    It's arriving.
+                </h1>
+                <h3 ng-show="ifSoon">
+                    (within 1 min)
+                    </h3>
+                <h1 class="digital remains" ng-show="!ifSoon">
+                    {{remains}}
+                </h1>
+                <span class="item-note remainsNote" ng-show="!ifSoon">
+                    Mins Left
+                </span>
+
+            </div>
+
+            <div class="item mapContainer" ng-hide="ifBusLocationNotAvailable">
+                <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true">
+                    <ui-gmap-markers models="markers" doRebuildAll='true' fit='true' coords="'self'" icon="'icon'">
+                    </ui-gmap-markers>
+                </ui-gmap-google-map>
+            </div>
+            <div class="item" ng-show="ifBusLocationNotAvailable">
+                <h1>N/A</h1>
+            </div>
+
+        </div>
+    </ion-content>
+
+</ion-view>
