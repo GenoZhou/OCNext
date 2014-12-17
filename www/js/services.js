@@ -288,6 +288,8 @@ app
                             stopDistanceThirdClosest = dist; //This is the third closest
                             DATA.setNearestStopsGroup(2, stopData.stops[i].stop_code, stopData.stops[i].stop_name);
                         }
+                    }else{
+                    	deferred.reject("Are you out of Ottawa? Sorry currently it only works within Ottawa");
                     }
                 }
 
@@ -298,7 +300,7 @@ app
                 }
             },
             function(reason) {
-                alert("Error: " + reason + "Plaease restart the app");
+                alert("Error: " + reason + " Please restart the app");
             });
 
 
@@ -382,7 +384,7 @@ app
             successCallback(stopNo);
         } else {
             this.getNearestStopNo().then(successCallback, function(reason) {
-                alert("Error: " + reason + "Plaease restart the app");
+                alert("Error: " + reason + " Please restart the app");
             });
         };
 
